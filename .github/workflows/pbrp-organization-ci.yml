@@ -39,7 +39,6 @@ jobs:
               if [[ ${BUILD_RELEASE_TYPE} == "TEST" ]]; then echo "TEST_BUILD=true"  >> $GITHUB_ENV;fi
               if [[ ${BUILD_RELEASE_TYPE} == "BETA" ]]; then echo "BETA_BUILD=true"  >> $GITHUB_ENV;fi
               if [[ ${BUILD_RELEASE_TYPE} == "OFFICIAL" ]]; then echo "PB_OFFICIAL=true"  >> $GITHUB_ENV;fi
-
        - name: Checkout Cleaning Up Runner Repo
          uses: actions/checkout@v2
          with:
@@ -59,6 +58,10 @@ jobs:
            path: .github/actions/Compiler
        - name: Recovery Compilation
          uses: ./.github/actions/Compiler
+       - name: Set Swap Space
+         uses: pierotofy/set-swap-space@master
+         with:
+           swap-size-gb: 10
        
        - name: Release Builds 
          run: |
