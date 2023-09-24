@@ -22,7 +22,7 @@ env:
   SFPassword: ${{ secrets.SFPassword }}
   SFUserName: ${{ secrets.SFUserName }}
   TARGET: "pbrp"
-  EXTRA_CMD: "rm -rf vendor/pb && git clone --depth=1 https://github.com/Agatha-Prjkt/vendor_pb vendor/pb"
+  EXTRA_CMD: "rm -rf vendor/pb && git clone --depth=1 https://github.com/Agatha-Prjkt/vendor_pb vendor/pb && git clone https://github.com/mi-sdm680/android_kernel_xiaomi_sm6225 kernel/xiaomi/spes --depth=1"
 
 jobs:
   PBRP_CI:
